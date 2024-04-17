@@ -1,0 +1,4 @@
+D:\Tranquangtien\TRANQUANGTIEN_TVC\tranquangtien2.2\obj\Debug\tranquangtienbai2.2.vbproj.AssemblyReference.cache
+D:\Tranquangtien\TRANQUANGTIEN_TVC\tranquangtien2.2\obj\Debug\tranquangtien2._2.Resources.resources
+D:\Tranquangtien\TRANQUANGTIEN_TVC\tranquangtien2.2\obj\Debug\tranquangtienbai2.2.vbproj.GenerateResource.cache
+D:\Tranquangtien\TRANQUANGTIEN_TVC\tranquangtien2.2\obj\Debug\tranquangtienbai2.2.vbproj.CoreCompileInputs.cache
