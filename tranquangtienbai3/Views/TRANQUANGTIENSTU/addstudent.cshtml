@@ -9,3 +9,8 @@
 @Html.TextBox("ho va ten","tran tien");
 
 @{Html.EndForm();}  
+@{ 
+    int[] names = { 10, 30, 21, 23, 23 };
+    foreach{ var item in names }
+    <li>@item</li>
+}

@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "addstu";
+}
+
+<h2>them sinh vien
+    </h2>
+<hr/>
+@using (Html.BeginForm())
+{
+<div>
+    @Html.Label("ho va ten");
+    @Html.TextBox("fullname");
+</div>
+<div>
+    @Html.Label("ma so");
+    @Html.TextBox("ma sinh vien");
+</div>
+<div>
+    @Html.Label("tai khoan");
+    @Html.TextBox("taikhoan","",new { @class = "form-control" });
+</div>
+<div>
+    @Html.Label("mat khau");
+    @Html.Password("matkhau");
+    @Html.Password("matkhau");
+</div>
+<button>submit</button>
+}
+

@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "NgonNguRazor";
+}
+
+<h2>NgonNguRazor</h2>
+<h3>bien</h3>
+@{
+    var name = "tqt";
+    int age = 12;
+    DateTime time = DateTime.Now;
+}
+<p>ho va ten: @name</p>
+<p>tuoi: @age;</p>
+<p>time: @time</p>
+<h3>cau lenh if</h3>
+@{
+    if (age > 10)
+    {
+        <p>tuoi @age => gia roi</p>
+    }
+    else
+    {
+        <p>con tre</p>
+    }
+}
+<h3>cac vong lap</h3>
+@{
+    int num = 10;
+
+}
+@for (int i = 0; i < num; i++)
+{
+    <li>@i => @i*@i  </li>
+}
+<h3>mảng</h3>
+@{
+    string[] names = { "tran quang tien ", "nguyen thi tien" };
+
+}
+@foreach (var item in names)
+{
+    <p>@item</p>
+}
+<hr />
+@foreach (var item in ViewBag.name)
+{
+    <p>@item</p>
+}
