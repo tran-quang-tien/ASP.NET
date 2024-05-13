@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34601.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tqtmodel13-5", "tqtmodel13-5.csproj", "{57B488D5-27F8-425A-84C6-DE40F4FA652B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57B488D5-27F8-425A-84C6-DE40F4FA652B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B488D5-27F8-425A-84C6-DE40F4FA652B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B488D5-27F8-425A-84C6-DE40F4FA652B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B488D5-27F8-425A-84C6-DE40F4FA652B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C407DDB4-FC6D-4C9A-8EE0-B4F36FD7DA42}
+	EndGlobalSection
+EndGlobal
