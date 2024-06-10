@@ -47,7 +47,7 @@ namespace tqtmodel13_5.Controllers
         }
         public ActionResult Tqtedit (int id)
         {
-            var customer = listcustomer.FirstOrDefault(x=>x.Customerid==id)
+            var customer = listcustomer.FirstOrDefault(x => x.Customerid == id);
                 return View(customer);
         }
     }

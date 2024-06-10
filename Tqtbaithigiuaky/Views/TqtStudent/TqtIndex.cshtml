@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Tqtbaithigiuaky.Models.TqtStudent>
+
+@{
+    ViewBag.Title = "TqtIndex";
+}
+
+<h2>TqtIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TqtId)
+            @Html.DisplayNameFor(model => model.TqtFullname)
+            @Html.DisplayNameFor(model => model.TqtEmail)
+            @Html.DisplayNameFor(model => model.TqtPhone)
+            @Html.DisplayNameFor(model => model.TqtTuoi)
+            @Html.DisplayNameFor(model => model.TqtGender)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TqtId)
+            @Html.DisplayFor(modelItem => item.TqtFullname)
+            @Html.DisplayFor(modelItem => item.TqtEmail)
+            @Html.DisplayFor(modelItem => item.TqtPhone)
+            @Html.DisplayFor(modelItem => item.TqtTuoi)
+            @Html.DisplayFor(modelItem => item.TqtGender)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
