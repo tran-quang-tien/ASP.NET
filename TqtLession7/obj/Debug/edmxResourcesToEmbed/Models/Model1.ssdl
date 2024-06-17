@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Tqtlesson07Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Tqtlesson07.dbo.Tqtkhoa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tqtkhoa">
+    <Key>
+      <PropertyRef Name="TqtMakh" />
+    </Key>
+    <Property Name="TqtMakh" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="TqtTenkh" Type="nvarchar" MaxLength="50" />
+    <Property Name="TqtTrangthai" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Tqtlesson07.dbo.TqtSinhvien' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TqtSinhvien">
+          <Property Name="TqtMasv" Type="nvarchar" MaxLength="50" />
+          <Property Name="TqtHosv" Type="nvarchar" MaxLength="50" />
+          <Property Name="TqtTensv" Type="nvarchar" MaxLength="50" />
+          <Property Name="TqtNgaysinh" Type="date" />
+          <Property Name="TqtPhai" Type="bit" />
+          <Property Name="TqtPhone" Type="nchar" MaxLength="10" />
+          <Property Name="TqtEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="TqtMakh" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+  <EntityContainer Name="Tqtlesson07ModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tqtkhoa" EntityType="Self.Tqtkhoa" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Tqtkhoa].[TqtMakh] AS [TqtMakh], 
+    [Tqtkhoa].[TqtTenkh] AS [TqtTenkh], 
+    [Tqtkhoa].[TqtTrangthai] AS [TqtTrangthai]
+    FROM [dbo].[Tqtkhoa] AS [Tqtkhoa]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
