@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TqtQuanlysvModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ketqua">
+    <Key>
+      <PropertyRef Name="MaSV" />
+      <PropertyRef Name="MaMH" />
+    </Key>
+    <Property Name="MaSV" Type="int" Nullable="false" />
+    <Property Name="MaMH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Diem" Type="float" />
+  </EntityType>
+  <EntityType Name="Monho">
+    <Key>
+      <PropertyRef Name="MaMH" />
+    </Key>
+    <Property Name="MaMH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenMH" Type="nvarchar" MaxLength="50" />
+    <Property Name="sotiet" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TqtKhoa">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenKH" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TqtSinhvien">
+    <Key>
+      <PropertyRef Name="MaSV" />
+    </Key>
+    <Property Name="MaSV" Type="int" Nullable="false" />
+    <Property Name="HoSV" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenSV" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phai" Type="bit" />
+    <Property Name="Ngaysinh" Type="date" />
+    <Property Name="Noisinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaKh" Type="nvarchar" MaxLength="50" />
+    <Property Name="Hocbong" Type="money" />
+    <Property Name="Diemtrungbinh" Type="float" />
+  </EntityType>
+  <Association Name="FK_Ketqua_Monho">
+    <End Role="Monho" Type="Self.Monho" Multiplicity="1" />
+    <End Role="Ketqua" Type="Self.Ketqua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Monho">
+        <PropertyRef Name="MaMH" />
+      </Principal>
+      <Dependent Role="Ketqua">
+        <PropertyRef Name="MaMH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ketqua_TqtSinhvien">
+    <End Role="TqtSinhvien" Type="Self.TqtSinhvien" Multiplicity="1" />
+    <End Role="Ketqua" Type="Self.Ketqua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TqtSinhvien">
+        <PropertyRef Name="MaSV" />
+      </Principal>
+      <Dependent Role="Ketqua">
+        <PropertyRef Name="MaSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TqtSinhvien_TqtKhoa">
+    <End Role="TqtKhoa" Type="Self.TqtKhoa" Multiplicity="0..1" />
+    <End Role="TqtSinhvien" Type="Self.TqtSinhvien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TqtKhoa">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="TqtSinhvien">
+        <PropertyRef Name="MaKh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TqtQuanlysvModelStoreContainer">
+    <EntitySet Name="Ketqua" EntityType="Self.Ketqua" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Monho" EntityType="Self.Monho" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TqtKhoa" EntityType="Self.TqtKhoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TqtSinhvien" EntityType="Self.TqtSinhvien" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Ketqua_Monho" Association="Self.FK_Ketqua_Monho">
+      <End Role="Monho" EntitySet="Monho" />
+      <End Role="Ketqua" EntitySet="Ketqua" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ketqua_TqtSinhvien" Association="Self.FK_Ketqua_TqtSinhvien">
+      <End Role="TqtSinhvien" EntitySet="TqtSinhvien" />
+      <End Role="Ketqua" EntitySet="Ketqua" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TqtSinhvien_TqtKhoa" Association="Self.FK_TqtSinhvien_TqtKhoa">
+      <End Role="TqtKhoa" EntitySet="TqtKhoa" />
+      <End Role="TqtSinhvien" EntitySet="TqtSinhvien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

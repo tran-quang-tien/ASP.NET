@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TqtLession11ModelStoreContainer" CdmEntityContainer="TqtLession11Entities">
+    <EntitySetMapping Name="TqtTaikhoans">
+      <EntityTypeMapping TypeName="TqtLession11Model.TqtTaikhoan">
+        <MappingFragment StoreEntitySet="TqtTaikhoan">
+          <ScalarProperty Name="TqtId" ColumnName="TqtId" />
+          <ScalarProperty Name="TqtUser" ColumnName="TqtUser" />
+          <ScalarProperty Name="TqtPass" ColumnName="TqtPass" />
+          <ScalarProperty Name="TqtName" ColumnName="TqtName" />
+          <ScalarProperty Name="TqtAge" ColumnName="TqtAge" />
+          <ScalarProperty Name="TqtEmail" ColumnName="TqtEmail" />
+          <ScalarProperty Name="TqtPhone" ColumnName="TqtPhone" />
+          <ScalarProperty Name="TqtStatus" ColumnName="TqtStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

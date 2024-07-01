@@ -1,0 +1,82 @@
+﻿@model TqtSinhvien.Models.TqtSinhvien
+
+@{
+    ViewBag.Title = "Tqt details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TqtSinhvien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HoSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaysinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaysinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Noisinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Noisinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hocbong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hocbong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diemtrungbinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diemtrungbinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TqtKhoa.TenKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TqtKhoa.TenKH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "tqtEdit", new { id = Model.MaSV }) |
+    @Html.ActionLink("Back to List", "tqtIndex")
+</p>

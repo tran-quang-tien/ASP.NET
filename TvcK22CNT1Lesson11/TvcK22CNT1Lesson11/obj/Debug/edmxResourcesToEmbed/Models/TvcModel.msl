@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TvcLesson11DbsModelStoreContainer" CdmEntityContainer="TvcLesson11DbsEntities">
+    <EntitySetMapping Name="TvcTaiKhoan">
+      <EntityTypeMapping TypeName="TvcLesson11DbsModel.TvcTaiKhoan">
+        <MappingFragment StoreEntitySet="TvcTaiKhoan">
+          <ScalarProperty Name="TvcId" ColumnName="TvcId" />
+          <ScalarProperty Name="TvcUserName" ColumnName="TvcUserName" />
+          <ScalarProperty Name="TvcPassword" ColumnName="TvcPassword" />
+          <ScalarProperty Name="TvcFullName" ColumnName="TvcFullName" />
+          <ScalarProperty Name="TvcAge" ColumnName="TvcAge" />
+          <ScalarProperty Name="TvcEmail" ColumnName="TvcEmail" />
+          <ScalarProperty Name="TvcPhone" ColumnName="TvcPhone" />
+          <ScalarProperty Name="TvcStatus" ColumnName="TvcStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

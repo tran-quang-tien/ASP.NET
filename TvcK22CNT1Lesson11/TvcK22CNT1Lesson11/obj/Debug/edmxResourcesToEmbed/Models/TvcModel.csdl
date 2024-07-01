@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TvcLesson11DbsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TvcTaiKhoan">
+    <Key>
+      <PropertyRef Name="TvcId" />
+    </Key>
+    <Property Name="TvcId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TvcUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TvcPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TvcFullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TvcAge" Type="Int32" />
+    <Property Name="TvcEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TvcPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TvcStatus" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="TvcLesson11DbsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TvcTaiKhoan" EntityType="Self.TvcTaiKhoan" />
+  </EntityContainer>
+</Schema>

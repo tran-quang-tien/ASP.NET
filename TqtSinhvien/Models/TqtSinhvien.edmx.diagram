@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b76f06dfa92349009c08b74d0224bc6e" Name="Diagram1">
+        <EntityTypeShape EntityType="TqtQuanlysvModel.sysdiagram" Width="1.5" PointX="8" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TqtQuanlysvModel.TqtKhoa" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TqtQuanlysvModel.TqtSinhvien" Width="1.5" PointX="0.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TqtQuanlysvModel.Ketqua" Width="1.5" PointX="5.75" PointY="2" />
+        <EntityTypeShape EntityType="TqtQuanlysvModel.Monho" Width="1.5" PointX="2.75" PointY="3.125" />
+        <AssociationConnector Association="TqtQuanlysvModel.FK_Ketqua_Monho" />
+        <AssociationConnector Association="TqtQuanlysvModel.FK_Ketqua_TqtSinhvien" />
+        <AssociationConnector Association="TqtQuanlysvModel.FK_TqtSinhvien_TqtKhoa" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

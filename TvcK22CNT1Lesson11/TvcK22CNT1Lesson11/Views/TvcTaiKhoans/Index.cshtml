@@ -1,0 +1,70 @@
+﻿@model IEnumerable<TvcK22CNT1Lesson11.Models.TvcTaiKhoan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TvcLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TvcUserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TvcPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TvcFullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TvcAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TvcEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TvcPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TvcStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TvcUserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TvcPassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TvcFullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TvcAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TvcEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TvcPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TvcStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TvcId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TvcId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TvcId })
+        </td>
+    </tr>
+}
+
+</table>

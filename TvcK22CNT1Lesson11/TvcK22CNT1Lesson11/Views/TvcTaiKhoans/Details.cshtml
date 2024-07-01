@@ -1,0 +1,75 @@
+﻿@model TvcK22CNT1Lesson11.Models.TvcTaiKhoan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_TvcLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TvcTaiKhoan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TvcUserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TvcUserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TvcPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TvcPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TvcFullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TvcFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TvcAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TvcAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TvcEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TvcEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TvcPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TvcPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TvcStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TvcStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TvcId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

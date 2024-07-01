@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TqtQuanlysvModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ketqua">
+          <Key>
+            <PropertyRef Name="MaSV" />
+            <PropertyRef Name="MaMH" />
+          </Key>
+          <Property Name="MaSV" Type="int" Nullable="false" />
+          <Property Name="MaMH" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Diem" Type="float" />
+        </EntityType>
+        <EntityType Name="Monho">
+          <Key>
+            <PropertyRef Name="MaMH" />
+          </Key>
+          <Property Name="MaMH" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenMH" Type="nvarchar" MaxLength="50" />
+          <Property Name="sotiet" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TqtKhoa">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenKH" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TqtSinhvien">
+          <Key>
+            <PropertyRef Name="MaSV" />
+          </Key>
+          <Property Name="MaSV" Type="int" Nullable="false" />
+          <Property Name="HoSV" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenSV" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phai" Type="bit" />
+          <Property Name="Ngaysinh" Type="date" />
+          <Property Name="Noisinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaKh" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hocbong" Type="money" />
+          <Property Name="Diemtrungbinh" Type="float" />
+        </EntityType>
+        <Association Name="FK_Ketqua_Monho">
+          <End Role="Monho" Type="Self.Monho" Multiplicity="1" />
+          <End Role="Ketqua" Type="Self.Ketqua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monho">
+              <PropertyRef Name="MaMH" />
+            </Principal>
+            <Dependent Role="Ketqua">
+              <PropertyRef Name="MaMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ketqua_TqtSinhvien">
+          <End Role="TqtSinhvien" Type="Self.TqtSinhvien" Multiplicity="1" />
+          <End Role="Ketqua" Type="Self.Ketqua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TqtSinhvien">
+              <PropertyRef Name="MaSV" />
+            </Principal>
+            <Dependent Role="Ketqua">
+              <PropertyRef Name="MaSV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TqtSinhvien_TqtKhoa">
+          <End Role="TqtKhoa" Type="Self.TqtKhoa" Multiplicity="0..1" />
+          <End Role="TqtSinhvien" Type="Self.TqtSinhvien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TqtKhoa">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="TqtSinhvien">
+              <PropertyRef Name="MaKh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TqtQuanlysvModelStoreContainer">
+          <EntitySet Name="Ketqua" EntityType="Self.Ketqua" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monho" EntityType="Self.Monho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TqtKhoa" EntityType="Self.TqtKhoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TqtSinhvien" EntityType="Self.TqtSinhvien" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ketqua_Monho" Association="Self.FK_Ketqua_Monho">
+            <End Role="Monho" EntitySet="Monho" />
+            <End Role="Ketqua" EntitySet="Ketqua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ketqua_TqtSinhvien" Association="Self.FK_Ketqua_TqtSinhvien">
+            <End Role="TqtSinhvien" EntitySet="TqtSinhvien" />
+            <End Role="Ketqua" EntitySet="Ketqua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TqtSinhvien_TqtKhoa" Association="Self.FK_TqtSinhvien_TqtKhoa">
+            <End Role="TqtKhoa" EntitySet="TqtKhoa" />
+            <End Role="TqtSinhvien" EntitySet="TqtSinhvien" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TqtQuanlysvModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TqtKhoa">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TqtSinhviens" Relationship="TqtQuanlysvModel.FK_TqtSinhvien_TqtKhoa" FromRole="TqtKhoa" ToRole="TqtSinhvien" />
+        </EntityType>
+        <EntityType Name="TqtSinhvien">
+          <Key>
+            <PropertyRef Name="MaSV" />
+          </Key>
+          <Property Name="MaSV" Type="Int32" Nullable="false" />
+          <Property Name="HoSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phai" Type="Boolean" />
+          <Property Name="Ngaysinh" Type="DateTime" Precision="0" />
+          <Property Name="Noisinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaKh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hocbong" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Diemtrungbinh" Type="Double" />
+          <NavigationProperty Name="Ketquas" Relationship="TqtQuanlysvModel.FK_Ketqua_TqtSinhvien" FromRole="TqtSinhvien" ToRole="Ketqua" />
+          <NavigationProperty Name="TqtKhoa" Relationship="TqtQuanlysvModel.FK_TqtSinhvien_TqtKhoa" FromRole="TqtSinhvien" ToRole="TqtKhoa" />
+        </EntityType>
+        <EntityContainer Name="TqtQuanlysvEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TqtKhoas" EntityType="Self.TqtKhoa" />
+          <EntitySet Name="TqtSinhviens" EntityType="Self.TqtSinhvien" />
+          <EntitySet Name="Ketquas" EntityType="TqtQuanlysvModel.Ketqua" />
+          <EntitySet Name="Monhoes" EntityType="TqtQuanlysvModel.Monho" />
+          <AssociationSet Name="FK_Ketqua_Monho" Association="TqtQuanlysvModel.FK_Ketqua_Monho">
+            <End Role="Monho" EntitySet="Monhoes" />
+            <End Role="Ketqua" EntitySet="Ketquas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ketqua_TqtSinhvien" Association="TqtQuanlysvModel.FK_Ketqua_TqtSinhvien">
+            <End Role="TqtSinhvien" EntitySet="TqtSinhviens" />
+            <End Role="Ketqua" EntitySet="Ketquas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TqtSinhvien_TqtKhoa" Association="TqtQuanlysvModel.FK_TqtSinhvien_TqtKhoa">
+            <End Role="TqtKhoa" EntitySet="TqtKhoas" />
+            <End Role="TqtSinhvien" EntitySet="TqtSinhviens" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Ketqua">
+          <Key>
+            <PropertyRef Name="MaSV" />
+            <PropertyRef Name="MaMH" />
+          </Key>
+          <Property Name="MaSV" Type="Int32" Nullable="false" />
+          <Property Name="MaMH" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Diem" Type="Double" />
+          <NavigationProperty Name="Monho" Relationship="TqtQuanlysvModel.FK_Ketqua_Monho" FromRole="Ketqua" ToRole="Monho" />
+          <NavigationProperty Name="TqtSinhvien" Relationship="TqtQuanlysvModel.FK_Ketqua_TqtSinhvien" FromRole="Ketqua" ToRole="TqtSinhvien" />
+        </EntityType>
+        <EntityType Name="Monho">
+          <Key>
+            <PropertyRef Name="MaMH" />
+          </Key>
+          <Property Name="MaMH" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sotiet" Type="Int32" />
+          <NavigationProperty Name="Ketquas" Relationship="TqtQuanlysvModel.FK_Ketqua_Monho" FromRole="Monho" ToRole="Ketqua" />
+        </EntityType>
+        <Association Name="FK_Ketqua_Monho">
+          <End Type="TqtQuanlysvModel.Monho" Role="Monho" Multiplicity="1" />
+          <End Type="TqtQuanlysvModel.Ketqua" Role="Ketqua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monho">
+              <PropertyRef Name="MaMH" />
+            </Principal>
+            <Dependent Role="Ketqua">
+              <PropertyRef Name="MaMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ketqua_TqtSinhvien">
+          <End Type="TqtQuanlysvModel.TqtSinhvien" Role="TqtSinhvien" Multiplicity="1" />
+          <End Type="TqtQuanlysvModel.Ketqua" Role="Ketqua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TqtSinhvien">
+              <PropertyRef Name="MaSV" />
+            </Principal>
+            <Dependent Role="Ketqua">
+              <PropertyRef Name="MaSV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TqtSinhvien_TqtKhoa">
+          <End Type="TqtQuanlysvModel.TqtKhoa" Role="TqtKhoa" Multiplicity="0..1" />
+          <End Type="TqtQuanlysvModel.TqtSinhvien" Role="TqtSinhvien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TqtKhoa">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="TqtSinhvien">
+              <PropertyRef Name="MaKh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TqtQuanlysvModelStoreContainer" CdmEntityContainer="TqtQuanlysvEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TqtQuanlysvModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TqtKhoas">
+            <EntityTypeMapping TypeName="TqtQuanlysvModel.TqtKhoa">
+              <MappingFragment StoreEntitySet="TqtKhoa">
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TqtSinhviens">
+            <EntityTypeMapping TypeName="TqtQuanlysvModel.TqtSinhvien">
+              <MappingFragment StoreEntitySet="TqtSinhvien">
+                <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+                <ScalarProperty Name="HoSV" ColumnName="HoSV" />
+                <ScalarProperty Name="TenSV" ColumnName="TenSV" />
+                <ScalarProperty Name="Phai" ColumnName="Phai" />
+                <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
+                <ScalarProperty Name="Noisinh" ColumnName="Noisinh" />
+                <ScalarProperty Name="MaKh" ColumnName="MaKh" />
+                <ScalarProperty Name="Hocbong" ColumnName="Hocbong" />
+                <ScalarProperty Name="Diemtrungbinh" ColumnName="Diemtrungbinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ketquas">
+            <EntityTypeMapping TypeName="TqtQuanlysvModel.Ketqua">
+              <MappingFragment StoreEntitySet="Ketqua">
+                <ScalarProperty Name="Diem" ColumnName="Diem" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+                <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monhoes">
+            <EntityTypeMapping TypeName="TqtQuanlysvModel.Monho">
+              <MappingFragment StoreEntitySet="Monho">
+                <ScalarProperty Name="sotiet" ColumnName="sotiet" />
+                <ScalarProperty Name="TenMH" ColumnName="TenMH" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

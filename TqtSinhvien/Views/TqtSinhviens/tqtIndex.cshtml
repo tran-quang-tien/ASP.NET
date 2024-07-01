@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TqtSinhvien.Models.TqtSinhvien>
+
+@{
+    ViewBag.Title = "tqt index";
+}
+
+<h2>tqt  Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "tqt Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HoSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngaysinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Noisinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hocbong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diemtrungbinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TqtKhoa.TenKH)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngaysinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Noisinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hocbong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diemtrungbinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TqtKhoa.TenKH)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "tqtEdit", new { id=item.MaSV }) |
+            @Html.ActionLink("Details", "tqtqDetails", new { id=item.MaSV }) |
+            @Html.ActionLink("Delete", "tqtDelete", new { id=item.MaSV })
+        </td>
+    </tr>
+}
+
+</table>

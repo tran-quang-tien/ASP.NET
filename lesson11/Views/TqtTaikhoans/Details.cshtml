@@ -1,0 +1,74 @@
+﻿@model lesson11.Models.TqtTaikhoan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TqtTaikhoan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TqtUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TqtUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TqtPass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TqtPass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TqtName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TqtName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TqtAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TqtAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TqtEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TqtEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TqtPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TqtPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TqtStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TqtStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TqtId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

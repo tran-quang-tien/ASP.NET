@@ -1,0 +1,69 @@
+﻿@model IEnumerable<lesson11.Models.TqtTaikhoan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TqtUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TqtPass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TqtName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TqtAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TqtEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TqtPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TqtStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TqtUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TqtPass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TqtName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TqtAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TqtEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TqtPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TqtStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TqtId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TqtId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TqtId })
+        </td>
+    </tr>
+}
+
+</table>
